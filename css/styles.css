@@ -15,3 +15,21 @@ html,body {
   margin-bottom: 0;
   color: #555;
 }
+
+/* Header
+-------------------------------------------------- */
+.navbar .brand{
+	color: #69b309;
+}
+
+.brand img{
+	height:20px;
+	margin: 3px;
+}
+
+/* Catalogue Item
+-------------------------------------------------- */
+
+.species-name{
+	font-style: italic;
+}
