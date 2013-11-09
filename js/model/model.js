@@ -5,6 +5,7 @@ window.Plant = Backbone.Model.extend({
     defaults: {
         idPlant: null,
         name: "",
+        species: "",
         description: "",
         picture: "img/thumbnails/empty.jpg"
     }

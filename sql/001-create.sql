@@ -7,7 +7,7 @@ CREATE TABLE `plant` (
   `name` varchar(45) NOT NULL,
   `description` varchar(300) DEFAULT NULL,
   `picture` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`idplant`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
