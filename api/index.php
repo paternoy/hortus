@@ -3,10 +3,6 @@
 require 'Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
-$configFile = parse_ini_file('hortus.ini');
-
-// print_r($configFile);
-
 $app = new \Slim\Slim();
 
 $configFile = parse_ini_file('hortus.ini');
@@ -28,11 +24,11 @@ $app->run();
 function addPlant(){
 	$request = \Slim\Slim::getInstance()->request();
    	$plant = json_decode($request->getBody());
-    $sql = "INSERT INTO plant (idPlant, name, species, description) VALUES (:idPlant, :name, :species, :description)";
+    $sql = "INSERT INTO plant (id, name, species, description) VALUES (:id, :name, :species, :description)";
     try {
         $db = getConnection();
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("idPlant", $plant->idPlant);
+        $stmt->bindParam("id", $plant->id);
         $stmt->bindParam("species", $plant->species);
         $stmt->bindParam("name", $plant->name);
         $stmt->bindParam("description", $plant->description);
@@ -59,7 +55,7 @@ function getPlants() {
 }
 
 function getPlant($id) {
-	$sql = "SELECT * FROM plant WHERE idPlant=:id";
+	$sql = "SELECT * FROM plant WHERE id=:id";
 	try {
 		$db = getConnection();
 		$stmt = $db->prepare($sql);  

@@ -2,7 +2,8 @@ var AppRouter = Backbone.Router.extend({
 
     routes: {
         ""                  : "catalogue",
-        "catalogue"         : "catalogue"
+        "catalogue"         : "catalogue",
+        "catalogue/:id"     : "details"
     },
 
     initialize: function () {
@@ -18,11 +19,19 @@ var AppRouter = Backbone.Router.extend({
         }});
 //        this.headerView.selectMenuItem('home-menu');
     },
+    
+    details: function (id) {
+        var plant = new Plant({id: id});
+        plant.fetch({success: function(model, response){
+            $("#content").html(new DetailsView({model: model}).el);
+        }});
+//        this.headerView.selectMenuItem();
+    }
 
 
 });
 
-utils.loadTemplate(['HeaderView','CatalogueView','CatalogueItemView'], function() {
+utils.loadTemplate(['HeaderView','CatalogueView','CatalogueItemView','DetailsView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
