@@ -16,6 +16,7 @@ $log->setLevel(\Slim\Log::DEBUG);
 
 $app->get('/plants', 'getPlants');
 $app->get('/plants/:id',	'getPlant');
+$app->get('/plants/:id/cycles',	'getPlantCycles');
 $app->get('/plants/search/:query', 'findByName');
 $app->post('/plants', 'addPlant');
 
@@ -66,6 +67,21 @@ function getPlant($id) {
 		echo json_encode($plant); 
 	} catch(PDOException $e) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+	}
+}
+
+function getPlantCycles($plantId) {
+	$sql = "SELECT * FROM crop_cycle WHERE plant_id=:id";
+	try {
+		$db = getConnection();
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam("id", $plantId);
+		$stmt->execute();
+		$cropCycles = $stmt->fetchAll(PDO::FETCH_OBJ);
+		$db = null;
+		echo json_encode($cropCycles);
+	} catch(PDOException $e) {
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 

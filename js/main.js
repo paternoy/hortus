@@ -3,6 +3,7 @@ var AppRouter = Backbone.Router.extend({
     routes: {
         ""                  : "catalogue",
         "catalogue"         : "catalogue",
+        "catalogue/cat/:category": "catalogue",
         "catalogue/:id"     : "details"
     },
 
@@ -11,7 +12,8 @@ var AppRouter = Backbone.Router.extend({
         $('.header').html(this.headerView.el);
     },
 
-    catalogue: function(page) {
+    catalogue: function(category,page) {
+    	alert(category);
         var p = page ? parseInt(page, 10) : 1;
         var plantList = new PlantCollection();
         plantList.fetch({success: function(){
