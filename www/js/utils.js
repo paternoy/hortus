@@ -1,7 +1,7 @@
 window.utils = {
 
     // Asynchronously load templates located in separate .html files
-    loadTemplate: function(views, callback) {
+    loadTemplates: function(views, callback) {
 
         var deferreds = [];
 
