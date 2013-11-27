@@ -29,8 +29,10 @@ app.Router = Backbone.Router.extend({
     catalogue: function(page) {
         var p = page ? parseInt(page, 10) : 1;
         var plantList = new PlantCollection();
+        var categoryList = new CategoryCollection();
+        categoryList.fetch();
         plantList.fetch({success: function(){
-            app.content().html(new CatalogueView({model: plantList, page: p}).el);
+            app.content().html(new CatalogueView({model:{plants: plantList, categories: categoryList}, page: p}).el);
         }});
 //        this.headerView.selectMenuItem('home-menu');
     },
