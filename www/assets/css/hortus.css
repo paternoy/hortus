@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+body {
+		padding-top: 50px;
+}
+
+
+@media (max-width: 767px) {
+	body {
+		padding-top: 40px;
+	}
+	
+	fieldset { margin-top: 15px;}
+}

@@ -1,0 +1,44 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<% if (!app.loggedIn()) { %>
+<div class="jumbotron">
+	<h1>Hortus <small><i class="fa fa-glass"></i>&nbsp;connect with nature</small></h1>
+	<p>A new way to culture.</p>
+	<p><a href="#sign-in" class="btn btn-primary btn-lg pull-right" role="button">Sign in »</a></p>
+	<div class="clearfix"></div>
+</div>
+<% } else { %>
+<div class="list-group">
+  	<a class="list-group-item" href="#costumers">
+  		<span class="badge pull-right">43</span>
+		<h4 class="list-group-item-heading">
+			<i class="fa fa-group"></i>&nbsp;Costumers
+		</h4>
+
+		<p class="list-group-item-text">
+			Learn more about the ingredients in your meal.
+		</p>
+	</a>
+	
+	<a class="list-group-item" href="#products"> 
+		<span class="badge pull-right">101</span>
+		<h4 class="list-group-item-heading">
+			<i class="fa fa-barcode"></i>&nbsp;Products
+		</h4>
+
+		<p class="list-group-item-text">
+			Take a look at the best alkaline recipes.
+		</p>
+	</a>
+
+	<a class="list-group-item" href="#sales"> 
+		<span class="badge pull-right">12</span>
+		<h4 class="list-group-item-heading">
+			<i class="fa fa-credit-card"></i>&nbsp;Sales
+		</h4>
+
+		<p class="list-group-item-text">
+			Save your favourite food and recipes into this menu.
+		</p>
+	</a>
+</div>
+<% } %>

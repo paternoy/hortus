@@ -1,4 +1,4 @@
-window.Plant = Backbone.Model.extend({
+app.Plant = Backbone.Model.extend({
 
     urlRoot: "api/plants",
 
@@ -11,9 +11,9 @@ window.Plant = Backbone.Model.extend({
     }
 });
 
-window.PlantCollection = Backbone.Collection.extend({
+app.PlantCollection = Backbone.Collection.extend({
 
-    model: Plant,
+    model: app.Plant,
 
     url: "api/plants"
 

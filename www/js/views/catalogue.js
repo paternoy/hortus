@@ -1,4 +1,4 @@
-window.CatalogueView = Backbone.View.extend({
+app.CatalogueView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
@@ -12,20 +12,18 @@ window.CatalogueView = Backbone.View.extend({
         $(this.el).html(this.template());
 
         for (var i = 0; i < len; i++) {
-            $('.thumbnails', this.el).append(new CatalogueItemView({model: plants[i]}).render().el);
+        	 $(this.el).find('#catalogue-thumbnails').append(new app.CatalogueItemView({model: plants[i]}).render().el);
         }
 
-//        $(this.el).append(new Paginator({model: this.model, page: this.options.page}).render().el);
+        $(this.el).find('#catalogue-paginator').html(new app.Paginator({model: this.model, page: this.options.page}).render().el);
 
         return this;
     }
 });
 
-window.CatalogueItemView = Backbone.View.extend({
+app.CatalogueItemView = Backbone.View.extend({
 
-    tagName: "li",
-
-    className: "span4",
+    className: "col-lg-4",
 
     initialize: function () {
         this.model.bind("change", this.render, this);

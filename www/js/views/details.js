@@ -1,4 +1,4 @@
-window.DetailsView = Backbone.View.extend({
+app.DetailsView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
