@@ -18,6 +18,7 @@ app.Router = Backbone.Router.extend({
     routes: {
         ""                  : "catalogue",
         "catalogue"         : "catalogue",
+        "catalogue/category/:id"      : "categoryFilter",
         "catalogue/:id"     : "details"
     },
 
@@ -30,10 +31,19 @@ app.Router = Backbone.Router.extend({
         var p = page ? parseInt(page, 10) : 1;
         var plantList = new PlantCollection();
         var categoryList = new CategoryCollection();
-        categoryList.fetch();
-        plantList.fetch({success: function(){
-            app.content().html(new CatalogueView({model:{plants: plantList, categories: categoryList}, page: p}).el);
-        }});
+        var categoryView = new CatalogueView({model:{plants: plantList, categories: categoryList}, page: p});
+        app.content().html(categoryView.render().el);
+//        this.headerView.selectMenuItem('home-menu');
+    },
+    
+    categoryFilter: function(categoryId,page) {
+        var p = page ? parseInt(page, 10) : 1;
+//        var category = new Category({id:categoryId});
+//        category.fetch();
+        var plantList = new PlantCollection();
+        var categoryList = new CategoryCollection();
+        var categoryView = new CatalogueView({model:{plants: plantList, categories: categoryList, activeCategoryId: parseInt(categoryId)}, page: p});
+        app.content().html(categoryView.render().el);
 //        this.headerView.selectMenuItem('home-menu');
     },
     

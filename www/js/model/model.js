@@ -1,27 +1,7 @@
-window.Plant = Backbone.Model.extend({
 
-    urlRoot: "api/plants",
+window.Category = Backbone.AssociatedModel.extend({
 
-    defaults: {
-        idPlant: null,
-        name: "",
-        species: "",
-        description: "",
-        picture: "img/thumbnails/empty.jpg"
-    }
-});
-
-window.PlantCollection = Backbone.Collection.extend({
-
-    model: Plant,
-
-    url: "api/plants"
-
-});
-
-window.Category = Backbone.Model.extend({
-
-    urlRoot: "api/categories",
+// urlRoot: "api/categories",
 
     defaults: {
         id: null,
@@ -33,6 +13,40 @@ window.CategoryCollection = Backbone.Collection.extend({
 
     model: Category,
 
-    url: "api/categories"
+    url: "api2/categories"
 
 });
+
+window.Plant = Backbone.AssociatedModel.extend({
+
+    defaults: {
+        id: null,
+        name: "",
+        species: "",
+        description: "",
+        picture: "img/thumbnails/empty.jpg",
+        categories:null
+    },
+	relations: [{
+		type: Backbone.Many,
+		key: 'categories',
+		relatedModel: 'Category'
+	}]
+	
+    
+});
+
+window.PlantCollection = Backbone.Collection.extend({
+
+    model: Plant,
+
+    url: "api2/plants",
+    byCategory : function(categoryId){
+    	 
+		return _(this.filter(function(data) {
+		  	return data.get('categories').findWhere({'id':categoryId})!=null;
+		}));
+	}
+
+});
+
