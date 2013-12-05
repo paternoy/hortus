@@ -1,35 +1,64 @@
+/* @CHARSET "UTF-8"; */
+
+/* html,body { */
+/* 	margin: 20px; */
+/* } */
 @CHARSET "UTF-8";
 
-html,body {
-	margin: 20px;
+body {
+	padding-top: 40px;
+}
+
+@media ( max-width : 767px) {
+	body {
+		padding-top: 40px;
+	}
+	fieldset {
+		margin-top: 15px;
+	}
 }
 
 /* Footer
 -------------------------------------------------- */
 .footer {
-  margin-top: 45px;
-  padding: 35px 0 36px;
-  border-top: 1px solid #e5e5e5;
+	margin-top: 45px;
+	padding: 35px 0 36px;
+	border-top: 1px solid #e5e5e5;
 }
+
 .footer p {
-  margin-bottom: 0;
-  color: #555;
+	margin-bottom: 0;
+	color: #555;
 }
 
 /* Header
 -------------------------------------------------- */
-.navbar .brand{
+.header .navbar {
+	height: 40px;
+}
+
+.header .navbar-brand {
 	color: #69b309;
 }
 
-.brand img{
-	height:20px;
+.header .navbar-brand img {
+	height: 20px;
 	margin: 3px;
 }
 
 /* Catalogue Item
 -------------------------------------------------- */
-
-.species-name{
+.species-name {
 	font-style: italic;
+}
+
+.thumbnails{
+	list-style-type: none;
+}
+
+.nav > li.disabled.nav-header > a {
+    cursor: default;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }

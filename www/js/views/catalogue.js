@@ -51,7 +51,7 @@ window.CatalogueItemView = Backbone.View.extend({
 
     tagName: "li",
 
-    className: "span4",
+    className: "catalogue-item col-md-4",
 
     initialize: function () {
         this.model.bind("change", this.render, this);

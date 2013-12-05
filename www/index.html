@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Hortus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="img/trebol.png" />
-<link rel="stylesheet" href="css/bootstrap.css" media="screen">
-<link rel="stylesheet" href="css/bootstrap-responsive.css">
-<link rel="stylesheet" href="css/styles.css">
+
+<title>Hortus</title>
+
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -37,19 +42,24 @@
 
 	</div>
 
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="lib/jquery-2.0.3.min.js"></script>
 	<script src="lib/underscore-min.js"></script>
 	<script src="lib/backbone.js"></script>
 	<script src="lib/backbone-associations.js"></script>
-	<script src="lib/bootstrap.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.js"></script>
 
 
+	<!-- Application
+	================================================== -->
 	<script src="js/utils.js"></script>
 	<script src="js/model/model.js"></script>
 	<script src="js/views/paginator.js"></script>
 	<script src="js/views/details.js"></script>
 	<script src="js/views/catalogue.js"></script>
 	<script src="js/views/header.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
