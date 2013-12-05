@@ -1,8 +1,6 @@
 
 window.Category = Backbone.AssociatedModel.extend({
-
-// urlRoot: "api/categories",
-
+ 	urlRoot: "api2/categories",
     defaults: {
         id: null,
         name: ""
@@ -10,15 +8,12 @@ window.Category = Backbone.AssociatedModel.extend({
 });
 
 window.CategoryCollection = Backbone.Collection.extend({
-
     model: Category,
-
     url: "api2/categories"
-
 });
 
 window.Plant = Backbone.AssociatedModel.extend({
-
+	urlRoot: "api2/plants",
     defaults: {
         id: null,
         name: "",
@@ -32,21 +27,10 @@ window.Plant = Backbone.AssociatedModel.extend({
 		key: 'categories',
 		relatedModel: 'Category'
 	}]
-	
-    
 });
 
 window.PlantCollection = Backbone.Collection.extend({
-
     model: Plant,
-
-    url: "api2/plants",
-    byCategory : function(categoryId){
-    	 
-		return _(this.filter(function(data) {
-		  	return data.get('categories').findWhere({'id':categoryId})!=null;
-		}));
-	}
-
+    url: "api2/plants"
 });
 
