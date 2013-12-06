@@ -54,7 +54,7 @@ function getPlants() {
 }
 
 function findPlants(){
-	$sql = "select p.*,c.* FROM plant p INNER JOIN plant_category pc ON pc.plant_id=p.id INNER JOIN category c ON pc.category_id=c.id ORDER BY p.name";
+	$sql = "select p.* FROM plant p ORDER BY p.name";
 	try {
 		$db = getConnection();
 		$stmt = $db->query($sql);
