@@ -1,6 +1,6 @@
 
 window.Category = Backbone.AssociatedModel.extend({
- 	urlRoot: "api2/categories",
+ 	urlRoot: "api/categories",
     defaults: {
         id: null,
         name: ""
@@ -9,11 +9,11 @@ window.Category = Backbone.AssociatedModel.extend({
 
 window.CategoryCollection = Backbone.Collection.extend({
     model: Category,
-    url: "api2/categories"
+    url: "api/categories"
 });
 
 window.Plant = Backbone.AssociatedModel.extend({
-	urlRoot: "api2/plants",
+	urlRoot: "api/plants",
     defaults: {
         id: null,
         name: "",
@@ -31,6 +31,6 @@ window.Plant = Backbone.AssociatedModel.extend({
 
 window.PlantCollection = Backbone.Collection.extend({
     model: Plant,
-    url: "api2/plants"
+    url: "api/plants"
 });
 
