@@ -8,7 +8,6 @@
 	</parent>
 	<artifactId>hortus-api</artifactId>
 	<name>Hortus - Rest API module</name>
-	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	
 	

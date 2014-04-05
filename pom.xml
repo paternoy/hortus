@@ -6,8 +6,27 @@
 	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Hortus</name>
+
+	<scm>
+		<url>https://xum@bitbucket.org/xum/hortus.git</url>
+		<connection>scm:git:git://bitbucket.org/xum/hortus.git</connection>
+		<developerConnection>scm:git:git@bitbucket.org/xum/hortus.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>coopnex-releases</id>
+			<url>http://nexus.coopnex.com/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>coopnex-snapshots</id>
+			<url>http://nexus.coopnex.com/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<modules>
-	    <module>hortus-web</module>
-	    <module>hortus-api</module>
+		<module>hortus-web</module>
+		<module>hortus-api</module>
 	</modules>
+ 	
 </project>
