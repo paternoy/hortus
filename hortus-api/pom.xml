@@ -9,8 +9,8 @@
 	<artifactId>hortus-api</artifactId>
 	<name>Hortus - Rest API module</name>
 	<packaging>war</packaging>
-	
-	
+
+
 	<repositories>
 		<repository>
 			<id>coopnex-releases</id>
@@ -19,7 +19,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<scrab.version>0.3</scrab.version>
+		<scrab.version>0.4</scrab.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -44,7 +44,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<!-- <webXml>src/main/webapp/WEB-INF/web.xml</webXml> -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 			<plugin>

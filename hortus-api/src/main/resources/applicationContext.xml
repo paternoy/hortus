@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<import resource="classpath*:/rest-context.xml"/>
+<!-- 	<import resource="classpath*:/rest-context.xml"/> -->
 	<context:component-scan base-package="com.coopnex.hortus.ui.controller" />
 	<context:component-scan base-package="com.coopnex.hortus.rest.controller" />
 	<context:component-scan base-package="com.coopnex.hortus.rest.resource" />
