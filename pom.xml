@@ -9,8 +9,8 @@
 
 	<scm>
 		<url>https://xum@bitbucket.org/xum/hortus.git</url>
-		<connection>scm:git:git@bitbucket.org/xum/hortus.git</connection>
-		<developerConnection>scm:git:git@bitbucket.org/xum/hortus.git</developerConnection>
+		<connection>scm:git:git@bitbucket.org:xum/hortus.git</connection>
+		<developerConnection>scm:git:git@bitbucket.org:xum/hortus.git</developerConnection>
 	</scm>
 
 	<distributionManagement>
