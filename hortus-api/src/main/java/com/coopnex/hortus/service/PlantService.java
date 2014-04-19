@@ -30,5 +30,9 @@ public class PlantService extends CrudService<Plant, Long>{
 		return result;
 //		return new File("/home/xum/development/workspace/hortus/hortus-web/src/main/webapp/img/thumbnails/cucumber.jpg");
 	}
+	
+	public void savePictureFor(long id, Content content) {
+		contentRepository.saveContent("picture", Long.toString(id), content);
+	}
 
 }

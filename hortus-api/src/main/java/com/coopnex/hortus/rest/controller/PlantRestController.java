@@ -1,5 +1,6 @@
 package com.coopnex.hortus.rest.controller;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.coopnex.hortus.data.entity.Plant;
 import com.coopnex.hortus.service.PlantService;
@@ -52,6 +55,22 @@ public class PlantRestController extends CrudController<Plant, Long> {
 		return new ResponseEntity<Resource>(inputStreamResource, httpHeaders,
 				HttpStatus.OK);
 		// return new ByteArrayResource(new ByteArrayInputStream(buf));
+	}
+	
+	
+	
+	@RequestMapping(value = "/{id}/picture", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@ResponseBody
+	public String uploadPicture(@PathVariable Long id, @RequestParam MultipartFile file){
+		try {
+			final InputStream inputStream = file.getInputStream();
+			
+			Content content = new Content(inputStream, 0, MediaType.IMAGE_PNG_VALUE, "UTF-8");
+			getService().savePictureFor(id, content);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "{\"result\":\"OK\"}";
 	}
 
 	@Override
