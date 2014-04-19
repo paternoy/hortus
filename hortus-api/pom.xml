@@ -19,7 +19,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<scrab.version>0.5-SNAPSHOT</scrab.version>
+		<scrab.version>0.5</scrab.version>
 	</properties>
 	<dependencies>
 		<dependency>
