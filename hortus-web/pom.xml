@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.coopnex.hortus</groupId>
 		<artifactId>hortus-parent</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<version>0.3</version>
 	</parent>
 	<artifactId>hortus-web</artifactId>
 	<packaging>war</packaging>
