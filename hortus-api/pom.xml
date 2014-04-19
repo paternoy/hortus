@@ -18,7 +18,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<scrab.version>0.6-SNAPSHOT</scrab.version>
+		<scrab.version>0.6</scrab.version>
 	</properties>
 	<dependencies>
 		<dependency>
