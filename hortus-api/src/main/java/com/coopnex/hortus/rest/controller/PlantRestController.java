@@ -56,21 +56,21 @@ public class PlantRestController extends CrudController<Plant, Long> {
 				HttpStatus.OK);
 		// return new ByteArrayResource(new ByteArrayInputStream(buf));
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/{id}/picture", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	@ResponseBody
-	public String uploadPicture(@PathVariable Long id, @RequestParam MultipartFile file){
+	public ResponseEntity<String> uploadPicture(@PathVariable Long id,
+			@RequestParam MultipartFile file) {
 		try {
 			final InputStream inputStream = file.getInputStream();
-			
-			Content content = new Content(inputStream, 0, MediaType.IMAGE_PNG_VALUE, "UTF-8");
+
+			Content content = new Content(inputStream,
+					MediaType.IMAGE_PNG_VALUE, "UTF-8");
 			getService().savePictureFor(id, content);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "{\"result\":\"OK\"}";
+		return new ResponseEntity<String>("OK", HttpStatus.OK);
 	}
 
 	@Override
