@@ -18,7 +18,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<scrab.version>0.5</scrab.version>
+		<scrab.version>0.6-SNAPSHOT</scrab.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,7 +40,7 @@
 				<version>2.0</version>
 				<configuration>
 					<url>http://localhost:8080/manager/text</url>
-					<server>localhost</server>
+					<server>tomcat</server>
 					<update>true</update>
 				</configuration>
 			</plugin>
