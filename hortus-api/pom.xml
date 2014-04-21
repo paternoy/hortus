@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.coopnex.hortus</groupId>
 		<artifactId>hortus-parent</artifactId>
-		<version>0.4</version>
+		<version>0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>hortus-api</artifactId>
 	<name>Hortus - Rest API module</name>
