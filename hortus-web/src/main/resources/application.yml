@@ -1,0 +1,6 @@
+server:
+  port: 8000
+
+spring:
+  resources:
+    add-mappings: true

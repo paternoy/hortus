@@ -19,7 +19,8 @@ app.Router = Backbone.Router.extend({
 		"" : "catalogue",
 		"catalogue" : "catalogue",
 		"catalogue/category/:id" : "categoryFilter",
-		"catalogue/:id" : "details"
+		"catalogue/:id" : "details",
+		"login" : "login"
 	},
 
 	initialize : function() {
@@ -73,14 +74,17 @@ app.Router = Backbone.Router.extend({
 			}
 		});
 		// this.headerView.selectMenuItem();
-	}
+	},
+	login: function() {
+		app.content().html(new LoginView().render().el);
+    }
 
 });
 
 $(document).ready(
 		function() {
 			utils.loadTemplates([ 'HeaderView', 'CatalogueView',
-					'CatalogueItemView', 'DetailsView' ], function() {
+					'CatalogueItemView', 'DetailsView','LoginView' ], function() {
 				app.router = new app.Router();
 				Backbone.history.start();
 			});
@@ -91,7 +95,7 @@ $(document).ready(
 				statusCode : {
 					401 : function() {
 						// Redirect the to the login page.
-						app.router.navigate('sign-in', {
+						app.router.navigate('login', {
 							trigger : true
 						});
 					},

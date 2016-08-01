@@ -23,15 +23,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.coopnex.hortus.data.entity.Plant;
 import com.coopnex.hortus.service.PlantService;
-import com.coopnex.scrab.data.repository.Content;
+import com.coopnex.scrab.data.blob.domain.BlobPayload;
 import com.coopnex.scrab.rest.controller.CrudController;
 import com.coopnex.scrab.rest.exception.ResourceNotFoundException;
 
 @Controller
-@RequestMapping("/plants")
+@RequestMapping("/api/plants")
 public class PlantRestController extends CrudController<Plant, Long> {
-	private static Logger log = LoggerFactory
-			.getLogger(PlantRestController.class);
+	private static Logger log = LoggerFactory.getLogger(PlantRestController.class);
 
 	@Autowired
 	private PlantService service;
@@ -44,28 +43,23 @@ public class PlantRestController extends CrudController<Plant, Long> {
 	@RequestMapping(value = "/{id}/picture", method = RequestMethod.GET, produces = MediaType.IMAGE_PNG_VALUE)
 	@ResponseBody
 	public ResponseEntity<Resource> getPicture(@PathVariable long id) {
-		Content picture = getService().getPictureFor(id);
+		BlobPayload picture = getService().getPictureFor(id);
 		if (picture == null) {
 			throw new ResourceNotFoundException();
 		}
 		HttpHeaders httpHeaders = new HttpHeaders();
-		InputStreamResource inputStreamResource = new InputStreamResource(
-				picture.getInputStream());
+		InputStreamResource inputStreamResource = new InputStreamResource(picture.getInputStream());
 		httpHeaders.setContentLength(picture.getContentLength());
-		return new ResponseEntity<Resource>(inputStreamResource, httpHeaders,
-				HttpStatus.OK);
-		// return new ByteArrayResource(new ByteArrayInputStream(buf));
+		return new ResponseEntity<Resource>(inputStreamResource, httpHeaders, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}/picture", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	@ResponseBody
-	public ResponseEntity<String> uploadPicture(@PathVariable Long id,
-			@RequestParam MultipartFile file) {
+	public ResponseEntity<String> uploadPicture(@PathVariable Long id, @RequestParam MultipartFile file) {
 		try {
 			final InputStream inputStream = file.getInputStream();
 
-			Content content = new Content(inputStream,
-					MediaType.IMAGE_PNG_VALUE, "UTF-8");
+			BlobPayload content = new BlobPayload(inputStream, MediaType.IMAGE_PNG_VALUE, "UTF-8");
 			getService().savePictureFor(id, content);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,8 +69,7 @@ public class PlantRestController extends CrudController<Plant, Long> {
 
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody
-	ResponseEntity<Plant> getById(@PathVariable Long id) {
+	public @ResponseBody ResponseEntity<Plant> getById(@PathVariable Long id) {
 		ResponseEntity<Plant> result = super.getById(id);
 		result.getBody().setPicture(buildPictureUrl(id));
 		return result;
@@ -89,8 +82,7 @@ public class PlantRestController extends CrudController<Plant, Long> {
 
 	@Override
 	@RequestMapping(method = RequestMethod.GET)
-	public @ResponseBody
-	List<Plant> getAll() {
+	public @ResponseBody List<Plant> getAll() {
 		List<Plant> result = super.getAll();
 		for (Plant plant : result) {
 			plant.setPicture(buildPictureUrl(plant.getId()));

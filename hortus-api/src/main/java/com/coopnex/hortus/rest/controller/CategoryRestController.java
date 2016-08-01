@@ -11,7 +11,7 @@ import com.coopnex.hortus.service.CategoryService;
 import com.coopnex.scrab.rest.controller.CrudController;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class CategoryRestController extends CrudController<Category, Long> {
 	private static Logger log = LoggerFactory
 			.getLogger(CategoryRestController.class);
