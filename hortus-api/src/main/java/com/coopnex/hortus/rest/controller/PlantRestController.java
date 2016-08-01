@@ -64,7 +64,7 @@ public class PlantRestController extends CrudController<Plant, Long> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<String>("OK", HttpStatus.OK);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 
 	@Override
